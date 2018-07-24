@@ -262,8 +262,8 @@ class TemplateParser
 
         if (preg_match('#<\\\\?\/' . $tagName . '\s*?>#i', $body, $tagMatch, null, $end)) {
             return $end + strlen($tagMatch[0]);
-        } else {
-            return false;
         }
+        return false;
+        
     }
 }
