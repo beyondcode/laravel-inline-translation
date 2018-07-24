@@ -116,5 +116,9 @@
         $(document).on('mousemove', '[data-translate]', function (e) {
             showTranslateIcon($(e.target));
         });
+        
+        $(document).on('mouseleave', '#beyondcode-translate-button', function (e) {
+            $('#beyondcode-translate-button').hide()
+        });
     });
 </script>
