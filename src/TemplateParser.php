@@ -55,6 +55,7 @@ class TemplateParser
         'select' => 'List options',
         'img' => 'Image',
         'input' => 'Form element',
+        'p' => 'Generic Paragraph',
     ];
 
     /**
