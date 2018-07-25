@@ -50,7 +50,6 @@
         }
 
         function openModal(translateData) {
-            console.log(translateData)
             var form = $('<div/>');
             var table = $('<table id="beyondcode-translation-table" width="100%" border="1">');
             table.append(`
