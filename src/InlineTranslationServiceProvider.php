@@ -18,6 +18,7 @@ class InlineTranslationServiceProvider extends ServiceProvider
             ], 'config');
         }
 
+        $this->loadTranslationsFrom(__DIR__.'/translations', 'laravel-inline-translation');
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'inline-translation');
 
         $this->registerMiddleware(InlineTranslationMiddleware::class);

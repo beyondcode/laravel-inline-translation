@@ -23,7 +23,7 @@
     $jqueryLatest(function ($) {
 
         function createTrigger(el) {
-            var trigger = $('<span id="beyondcode-translate-button" class="translate-button">translate</span>');
+            var trigger = $('<span id="beyondcode-translate-button" class="translate-button">'+ {!! json_encode(trans("laravel-inline-translation::form.translate")) !!} +'</span>');
 
             return $(trigger)
                 .css({
@@ -50,17 +50,18 @@
         }
 
         function openModal(translateData) {
+            console.log(translateData)
             var form = $('<div/>');
             var table = $('<table id="beyondcode-translation-table" width="100%" border="1">');
             table.append(`
                 <tr>
                     <th>Key</th>
-                    <th>Value</th>
+                    <th>{!! (trans("laravel-inline-translation::form.value")) !!}</th>
                 </tr>
             `);
             translateData.forEach(function (data) {
                 var tr = $('<tr>')
-                    .append('<td>Translated</td>')
+                    .append('<td>'+ {!! json_encode(trans("laravel-inline-translation::form.translated")) !!} +'</td>')
                     .append(
                         $('<td>')
                             .append(
@@ -75,23 +76,22 @@
 
                 table.append(`
                     <tr>
-                        <td>Original</td>
+                        <td>{!! (trans("laravel-inline-translation::form.original")) !!}</td>
                         <td>${data.original}</td>
                     </tr>
                     <tr>
-                        <td>Location</td>
+                        <td>{!! (trans("laravel-inline-translation::form.location")) !!}</td>
                         <td>${data.location}</td>
                     </tr>
                     <tr>
-                        <td>Parameters</td>
+                        <td>{!! (trans("laravel-inline-translation::form.parameters")) !!}</td>
                         <td><pre>${JSON.stringify(data.parameters, null, 2)}</pre></td>
                     </tr>
                 `);
             });
 
             form.append(table);
-
-            var btn = $('<button type="submit">Save</button>')
+            var btn = $('<button type="submit"> '+ {!! json_encode(trans("laravel-inline-translation::form.save")) !!} +' </button>')
                 .click(function (){
                     translateData.forEach(function (data) {
                         var name = data.original;
